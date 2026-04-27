@@ -1,0 +1,66 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "The Horadric Cube",
+  "version": "0.1.0",
+  "identifier": "nl.zmuuzn.horadric-cube",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "withGlobalTauri": false,
+    "windows": [
+      {
+        "label": "main",
+        "title": "The Horadric Cube",
+        "width": 520,
+        "height": 720,
+        "minWidth": 480,
+        "minHeight": 600,
+        "resizable": true,
+        "fullscreen": false,
+        "decorations": true,
+        "transparent": false,
+        "visible": false,
+        "skipTaskbar": false,
+        "center": true,
+        "url": "index.html"
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["msi", "nsis"],
+    "publisher": "Zmuuzn Laboratory",
+    "category": "Utility",
+    "shortDescription": "Diablo 4 tooltip OCR client for The Horadrim",
+    "longDescription": "A passive companion for The Horadrim — captures Diablo 4 tooltip regions via global hotkey, OCRs them locally via the bundled Tesseract sidecar, and posts parsed JSON to horadrim.zmuuzn.nl. Screen reading only. No game memory access.",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "externalBin": [
+      "sidecars/tesseract"
+    ],
+    "resources": [
+      "sidecars/eng.traineddata"
+    ],
+    "windows": {
+      "wix": {
+        "language": "en-US"
+      },
+      "nsis": {
+        "displayLanguageSelector": false,
+        "installerIcon": "icons/icon.ico"
+      }
+    }
+  }
+}

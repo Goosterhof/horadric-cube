@@ -1,0 +1,39 @@
+[package]
+name = "horadric-cube"
+version = "0.1.0"
+description = "The Horadric Cube — Diablo 4 tooltip OCR client for The Horadrim"
+authors = ["Gerard Oosterhof <gerard@script.nl>"]
+edition = "2021"
+rust-version = "1.77"
+
+[lib]
+name = "horadric_cube_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["tray-icon", "image-png"] }
+tauri-plugin-shell = "2"
+tauri-plugin-global-shortcut = "2"
+tauri-plugin-store = "2"
+tauri-plugin-opener = "2"
+tauri-plugin-http = "2"
+tauri-plugin-log = "2"
+tauri-plugin-dialog = "2"
+
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+anyhow = "1"
+thiserror = "2"
+chrono = { version = "0.4", features = ["serde"] }
+log = "0.4"
+
+xcap = "0.0.13"
+image = { version = "0.25", default-features = false, features = ["png"] }
+
+keyring = "3"
+
+[features]
+custom-protocol = ["tauri/custom-protocol"]

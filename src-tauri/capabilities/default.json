@@ -1,0 +1,48 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Capabilities for the Cube's main window — sidecar invocation, hotkey registration, secure store, HTTP to horadrim backend.",
+  "windows": ["main"],
+  "permissions": [
+    "core:default",
+    "core:window:allow-show",
+    "core:window:allow-hide",
+    "core:window:allow-set-focus",
+    "core:window:allow-close",
+    "core:event:default",
+    "core:tray:default",
+    "core:image:default",
+    "opener:default",
+    "shell:default",
+    {
+      "identifier": "shell:allow-execute",
+      "allow": [
+        {
+          "name": "tesseract",
+          "sidecar": true,
+          "args": [
+            { "validator": "^.*\\.png$" },
+            "stdout",
+            "-l",
+            "eng",
+            "--psm",
+            { "validator": "^[0-9]{1,2}$" }
+          ]
+        }
+      ]
+    },
+    "global-shortcut:default",
+    "store:default",
+    "http:default",
+    {
+      "identifier": "http:allow-fetch",
+      "allow": [
+        { "url": "https://horadrim.zmuuzn.nl/*" },
+        { "url": "https://auth.zmuuzn.nl/*" },
+        { "url": "http://localhost:8000/*" }
+      ]
+    },
+    "log:default",
+    "dialog:default"
+  ]
+}

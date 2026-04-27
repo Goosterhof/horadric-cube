@@ -1,0 +1,38 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Rust / Tauri build artifacts
+src-tauri/target
+src-tauri/gen
+src-tauri/Cargo.lock
+
+# Bundled sidecar binaries — supplied at build time, never committed.
+# The READMe in src-tauri/sidecars/ explains what to drop in.
+src-tauri/sidecars/*
+!src-tauri/sidecars/.gitkeep
+!src-tauri/sidecars/README.md
+
+# Tauri runtime caches (captured PNGs land here)
+src-tauri/.cache
