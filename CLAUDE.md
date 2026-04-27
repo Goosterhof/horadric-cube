@@ -6,9 +6,13 @@ screen regions on a global hotkey, OCRs them via a bundled Tesseract sidecar
 binary, parses the result into typed JSON, and posts the payload to The
 Horadrim's reliquary gate at `horadrim.zmuuzn.nl/api/ingest/tooltip`.
 
-This repo is **not** a submodule of `zmuuzn/`. It is a separate, standalone
-application that ships as a Windows binary, not a deployed service. It is
-the laboratory's first Tauri build — treated as a stretch skill.
+This repo lives as a submodule at `zmuuzn/gadgets/horadric-cube/` — the
+laboratory's fifth gadget and the first non-VS-Code one. The original
+"separate repo, not a submodule" framing in experiment log #00047 was
+re-litigated during Phase 2 scaffolding; the Cube is conceptually a tool the
+Mad Scientist uses adjacent to an experiment, the same way The Observer is.
+It still ships as a Windows binary, not a deployed service. It is the
+laboratory's first Tauri build — treated as a stretch skill.
 
 ## Tech Stack
 
