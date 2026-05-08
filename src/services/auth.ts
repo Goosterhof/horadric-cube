@@ -5,19 +5,19 @@
 // layer never imports from @tauri-apps/api/core directly — keeps the boundary
 // between TS and Rust visible.
 
-import { invoke } from "@tauri-apps/api/core";
-import { openUrl } from "@tauri-apps/plugin-opener";
+import {invoke} from '@tauri-apps/api/core';
+import {openUrl} from '@tauri-apps/plugin-opener';
 
-export async function getToken(): Promise<string | null> {
-  return await invoke<string | null>("get_token");
+export function getToken(): Promise<string | null> {
+    return invoke<string | null>('get_token');
 }
 
 export async function storeToken(token: string): Promise<void> {
-  await invoke("store_token", { token });
+    await invoke('store_token', {token});
 }
 
 export async function clearToken(): Promise<void> {
-  await invoke("clear_token");
+    await invoke('clear_token');
 }
 
 /**
@@ -29,10 +29,10 @@ export async function clearToken(): Promise<void> {
  * deep-link handler (`horadric-cube://auth?code=…`) or a local HTTP listener.
  */
 export async function openAuthFlow(backendUrl: string): Promise<void> {
-  // The Horadrim backend's /auth/redirect already proxies to The Gatekeeper.
-  // For v0 we open it with `?cube=true` so the backend can render a
-  // Cube-friendly success page instead of bouncing back to the SPA.
-  const url = new URL("/auth/redirect", backendUrl);
-  url.searchParams.set("cube", "1");
-  await openUrl(url.toString());
+    // The Horadrim backend's /auth/redirect already proxies to The Gatekeeper.
+    // For v0 we open it with `?cube=true` so the backend can render a
+    // Cube-friendly success page instead of bouncing back to the SPA.
+    const url = new URL('/auth/redirect', backendUrl);
+    url.searchParams.set('cube', '1');
+    await openUrl(url.toString());
 }
