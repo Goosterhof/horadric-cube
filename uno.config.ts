@@ -2,7 +2,7 @@ import {
   defineConfig,
   presetAttributify,
   presetIcons,
-  presetUno,
+  presetWind3,
   transformerVariantGroup,
 } from "unocss";
 
@@ -15,7 +15,7 @@ import {
 
 export default defineConfig({
   presets: [
-    presetUno({ dark: "class" }),
+    presetWind3({ dark: "class" }),
     presetAttributify(),
     presetIcons({
       scale: 1.2,
