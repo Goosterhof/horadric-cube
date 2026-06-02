@@ -77,6 +77,14 @@ export default defineConfig({
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: rgba(90, 74, 58, 0.4); border-radius: 0; }
         ::-webkit-scrollbar-thumb:hover { background: rgba(193, 125, 17, 0.6); }
+        @media (prefers-reduced-motion: reduce) {
+          *, *::before, *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+          }
+        }
       `,
     },
   ],
