@@ -34,7 +34,7 @@
     "@tauri-apps/cli": "^2",
     "unocss": "^66.6.0",
     "@unocss/preset-attributify": "^66.6.0",
-    "@unocss/preset-icons": "^66.6.0",
+    "@unocss/preset-icons": "^66.7.0",
     "oxfmt": "^0.46.0",
     "oxlint": "^1.0.0",
     "oxlint-tsgolint": "^0.22.1"
