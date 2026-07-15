@@ -12,11 +12,7 @@ use tauri_plugin_shell::ShellExt;
 
 use crate::error::{CubeError, CubeResult};
 
-pub async fn run_tesseract(
-    app: &AppHandle,
-    png_path: &Path,
-    psm: u8,
-) -> CubeResult<String> {
+pub async fn run_tesseract(app: &AppHandle, png_path: &Path, psm: u8) -> CubeResult<String> {
     let png_str = png_path.to_string_lossy().to_string();
     let psm_str = psm.to_string();
 

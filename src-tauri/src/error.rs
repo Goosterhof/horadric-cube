@@ -12,9 +12,15 @@ pub enum CubeError {
     #[error("the keyring refused: {0}")]
     Keyring(String),
 
+    // Reserved for the hotkey/tray failure paths — those modules currently
+    // surface `tauri::Result`, but the voiced taxonomy keeps a variant ready
+    // for when their errors cross the bridge. Retained by design, not yet
+    // constructed.
+    #[allow(dead_code)]
     #[error("the hotkey would not bind: {0}")]
     Hotkey(String),
 
+    #[allow(dead_code)]
     #[error("the tray would not respond: {0}")]
     Tray(String),
 

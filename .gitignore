@@ -26,7 +26,10 @@ dist-ssr
 # Rust / Tauri build artifacts
 src-tauri/target
 src-tauri/gen
-src-tauri/Cargo.lock
+# Cargo.lock IS committed — the Cube is a binary app, not a library. Pinning
+# the dependency set keeps CI reproducible and stops floating deps from
+# silently breaking the build between sessions (they did: xcap/tauri drift,
+# fixed 2026-07-15 when the Sentinel was armed).
 
 # Bundled sidecar binaries — supplied at build time, never committed.
 # The READMe in src-tauri/sidecars/ explains what to drop in.

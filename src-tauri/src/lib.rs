@@ -12,9 +12,7 @@ mod hotkey;
 mod sidecar;
 mod tray;
 
-use error::CubeError;
 use tauri::Manager;
-use tauri_plugin_global_shortcut::GlobalShortcutExt;
 use tauri_plugin_log::{Target, TargetKind};
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]

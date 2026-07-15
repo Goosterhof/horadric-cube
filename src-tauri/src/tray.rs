@@ -24,8 +24,7 @@ const TRAY_ID: &str = "horadric-cube-tray";
 
 pub fn install<R: Runtime>(app: &AppHandle<R>) -> tauri::Result<()> {
     let show_item = MenuItem::with_id(app, "show", "Open the Cube", true, None::<&str>)?;
-    let separator =
-        tauri::menu::PredefinedMenuItem::separator(app)?;
+    let separator = tauri::menu::PredefinedMenuItem::separator(app)?;
     let quit_item = MenuItem::with_id(app, "quit", "Seal the vault", true, None::<&str>)?;
     let menu = Menu::with_items(app, &[&show_item, &separator, &quit_item])?;
 
@@ -33,7 +32,7 @@ pub fn install<R: Runtime>(app: &AppHandle<R>) -> tauri::Result<()> {
         .icon(app.default_window_icon().cloned().expect("default icon"))
         .tooltip("The Horadric Cube — idle")
         .menu(&menu)
-        .menu_on_left_click(false)
+        .show_menu_on_left_click(false)
         .on_menu_event(|app, event| match event.id.as_ref() {
             "show" => {
                 if let Some(window) = app.get_webview_window("main") {
