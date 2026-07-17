@@ -6,7 +6,7 @@
 
 use std::path::PathBuf;
 
-use image::{imageops, GenericImageView, ImageBuffer, Luma};
+use image::{imageops, ImageBuffer, Luma};
 use serde::{Deserialize, Serialize};
 use tauri::{AppHandle, Manager};
 use xcap::Monitor;
@@ -43,10 +43,7 @@ pub struct CaptureResult {
 }
 
 #[tauri::command]
-pub async fn capture_and_ocr(
-    app: AppHandle,
-    region: ScreenRegion,
-) -> CubeResult<CaptureResult> {
+pub async fn capture_and_ocr(app: AppHandle, region: ScreenRegion) -> CubeResult<CaptureResult> {
     let started = std::time::Instant::now();
 
     let png_path = capture_region_to_png(&app, region)?;
@@ -70,7 +67,7 @@ fn capture_region_to_png(app: &AppHandle, region: ScreenRegion) -> CubeResult<Pa
             .ok_or_else(|| CubeError::Capture(format!("monitor index {i} out of range")))?,
         None => monitors
             .iter()
-            .find(|m| m.is_primary().unwrap_or(false))
+            .find(|m| m.is_primary())
             .or_else(|| monitors.first())
             .ok_or_else(|| CubeError::Capture("no primary monitor".into()))?,
     };

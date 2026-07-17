@@ -189,8 +189,16 @@ captures fail with a clear sidecar error.
 - **English OCR only.** Hardcoded `-l eng` in `sidecar.rs`. Architecture is
   not blocked from adding more locales — the locked v0 decision is to ship
   English-only and revisit if the cohort changes.
-- **No CI.** Build and packaging are local. Add a Windows GitHub Actions
-  workflow once the binary is shipping.
+- **CI gates the code, not the installer.** `.github/workflows/sentinel.yml`
+  (armed 2026-07-15) self-gates every PR and push to `main`: a frontend job
+  (typecheck / lint / format / build) and a Rust job (fmt / clippy `-D
+  warnings` / build / test on Ubuntu). The Rust job stubs the gitignored
+  Tesseract sidecar + `eng.traineddata` before compiling — it type-checks the
+  substrate, it does **not** bundle the Windows `.msi`/`.nsis` installer or run
+  OCR. `Cargo.lock` is now committed so the gate is reproducible (floating deps
+  had silently broken the build before the gate existed). The genuine Windows
+  installer build (`cargo tauri build` + the real sidecar) is still local /
+  Windows-only.
 
 ## Phase 2 Acceptance Criteria
 
