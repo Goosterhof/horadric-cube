@@ -32,7 +32,7 @@
     "@unocss/preset-icons": "^66.7.0",
     "@vitejs/plugin-vue": "^5.2.1",
     "oxfmt": "^0.53.0",
-    "oxlint": "^1.0.0",
+    "oxlint": "^1.74.0",
     "oxlint-tsgolint": "^0.23.0",
     "typescript": "~5.6.2",
     "unocss": "^66.7.0",
