@@ -33,7 +33,7 @@ log = "0.4"
 xcap = "0.0.13"
 image = { version = "0.25", default-features = false, features = ["png"] }
 
-keyring = "3"
+keyring = "4"
 
 [features]
 custom-protocol = ["tauri/custom-protocol"]
