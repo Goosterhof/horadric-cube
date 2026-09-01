@@ -30,7 +30,7 @@
     "@tauri-apps/cli": "^2",
     "@unocss/preset-attributify": "^66.8.1",
     "@unocss/preset-icons": "^66.7.0",
-    "@vitejs/plugin-vue": "^5.2.1",
+    "@vitejs/plugin-vue": "^6.0.8",
     "oxfmt": "^0.62.0",
     "oxlint": "^1.80.0",
     "oxlint-tsgolint": "^7.0.2001",
