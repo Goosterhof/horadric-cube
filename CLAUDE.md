@@ -17,7 +17,7 @@ laboratory's first Tauri build — treated as a stretch skill.
 ## Tech Stack
 
 - **Core:** Tauri v2 (Rust 2021 edition, rust-version 1.77+)
-- **UI:** Vue 3 + TypeScript 5.6 + Vite 6 + UnoCSS (attributify)
+- **UI:** Vue 3 + TypeScript 5.6 + Vite 8 + UnoCSS (attributify)
 - **OCR:** Tesseract Windows binary delivered as a Tauri sidecar (not a Rust
   crate, not WASM)
 - **Capture:** the `xcap` Rust crate for region screenshots; `image` for
