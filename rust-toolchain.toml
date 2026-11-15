@@ -1,0 +1,6 @@
+# xcap 0.0.13 stops compiling on Rust 1.100 (never-type fallback change); the
+# pin can go once xcap moves to 0.9 (#48).
+[toolchain]
+channel = "1.99.1"
+components = ["clippy", "rustfmt"]
+profile = "minimal"
