@@ -65,11 +65,20 @@ fn capture_region_to_png(app: &AppHandle, region: ScreenRegion) -> CubeResult<Pa
         Some(i) => monitors
             .get(i)
             .ok_or_else(|| CubeError::Capture(format!("monitor index {i} out of range")))?,
-        None => monitors
-            .iter()
-            .find(|m| m.is_primary())
-            .or_else(|| monitors.first())
-            .ok_or_else(|| CubeError::Capture("no primary monitor".into()))?,
+        None => {
+            let mut primary = None;
+            for m in &monitors {
+                if m.is_primary()
+                    .map_err(|e| CubeError::Capture(e.to_string()))?
+                {
+                    primary = Some(m);
+                    break;
+                }
+            }
+            primary
+                .or_else(|| monitors.first())
+                .ok_or_else(|| CubeError::Capture("no primary monitor".into()))?
+        }
     };
 
     let frame = monitor

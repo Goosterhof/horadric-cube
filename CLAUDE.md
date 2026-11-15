@@ -44,7 +44,7 @@ horadric-cube/
 │   │   ├── capture.rs ........ ScreenRegion → PNG → sidecar → text
 │   │   ├── sidecar.rs ........ tesseract subprocess invocation
 │   │   └── auth.rs ........... keyring entry for the Gatekeeper bearer
-│   ├── Cargo.toml ............ Pinned to tauri 2, plugins-2, keyring 3, xcap 0.0.13
+│   ├── Cargo.toml ............ Pinned to tauri 2, plugins-2, keyring 3, xcap 0.9
 │   ├── tauri.conf.json ....... productName, hidden window, sidecar entry
 │   ├── capabilities/default.json  Window + plugin permissions, allowlisted hosts
 │   └── sidecars/ ............. (Tesseract + eng.traineddata — added at build time, gitignored)
