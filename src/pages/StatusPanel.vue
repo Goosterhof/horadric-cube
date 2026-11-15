@@ -34,8 +34,8 @@ const authClass = computed(() => (state.authenticated ? 'text-emerald-400' : 'te
             </div>
             <p class="text-hd-bone/60 text-sm mt-2">
                 Hover an item or aspect tooltip in Diablo 4 and press
-                <span class="vault-rune">{{ state.hotkey ?? 'Ctrl+Shift+H' }}</span
-                >. The Cube will capture, OCR, and post the parsed payload.
+                <span class="vault-rune">{{ state.hotkey ?? 'Ctrl+Shift+H' }}</span>. The Cube will capture, OCR, and
+                post the parsed payload.
             </p>
             <button
                 class="vault-button-primary mt-4"
